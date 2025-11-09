@@ -3,7 +3,7 @@
 S.M.A.R.T. is a Summarization Model for Annotation Recognition & Translation/Transcription that performs quick, low error and detailed extraction of summary, action items, sentiment analysis,name entity recognition, timeline extraction, creates recommendations, translates these into different languages, creates transcription from hebrew, farsi and english lanaguages which then translates the full transcription in the other two languages if one of these is the language the audio/video file is in. It processes audio and video file using ffmpeg in seconds converting it into .wav format that is then processed for the above operations.
 
 ## Features
-- Smmarization
+- Summarization
 - Action Items Recognition
 - Sentiment Analysis
 - Timeline Extraction
@@ -25,3 +25,6 @@ Download the installer from [Google Drive](https://drive.google.com/drive/folder
 
 ## Demo Video Link
 Please follow the video from [Youtube](https://youtu.be/Knx02Makn1Y) for a demo on how to use the software
+
+Was originally made as part of IWTSD (D.O.D) Smart Summary challenge on Innocentive platform
+
