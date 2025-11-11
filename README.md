@@ -20,11 +20,14 @@ S.M.A.R.T. is a Summarization Model for Annotation Recognition & Translation/Tra
 - Suitable for CPU operations
 - Efficient and quick in the above operations
 
+Edge computing for privacy and quick meeting brief in places were data security is vital and network/cloud issues are persistent
+
 ## Installation
 Download the installer from [Google Drive](https://drive.google.com/drive/folders/1Y_SojsNTTueUTTevEAq1D6_1_kwogIXD?usp=drive_link) and download entire folder then open the SMART_setup.exe file and installation will be automatic.
 
 ## Demo Video Link
 Please follow the video from [Youtube](https://youtu.be/Knx02Makn1Y) for a demo on how to use the software
 
-Was originally made as part of IWTSD (D.O.D) Smart Summary challenge on Innocentive platform
+Was originally made as part of IWTSD (Department of Defence) Smart Summary challenge on Innocentive platform
+
 
