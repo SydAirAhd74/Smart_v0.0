@@ -28,6 +28,7 @@ Download the installer from [Google Drive](https://drive.google.com/drive/folder
 ## Demo Video Link
 Please follow the video from [Youtube](https://youtu.be/Knx02Makn1Y) for a demo on how to use the software
 
-Was originally made as part of IWTSD (Department of Defence) Smart Summary challenge on Innocentive platform
+Was originally made as part of IWTSD (Department of Defense) Smart Summary challenge on Innocentive platform
+
 
 
