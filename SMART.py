@@ -64,7 +64,7 @@ def setup_ffmpeg_path():
         print(f"Checking for FFmpeg at: {potential_path}")
         if os.path.exists(potential_path):
             ffmpeg_path = potential_path
-            print(f"✅ Found FFmpeg at: {ffmpeg_path}")
+            print(f" Found FFmpeg at: {ffmpeg_path}")
             break
     
     for name in ffprobe_names:
@@ -72,7 +72,7 @@ def setup_ffmpeg_path():
         print(f"Checking for FFprobe at: {potential_path}")
         if os.path.exists(potential_path):
             ffprobe_path = potential_path
-            print(f"✅ Found FFprobe at: {ffprobe_path}")
+            print(f" Found FFprobe at: {ffprobe_path}")
             break
     
     
@@ -80,29 +80,29 @@ def setup_ffmpeg_path():
         print("FFmpeg not found in bundled directory, checking system PATH...")
         ffmpeg_path = which("ffmpeg")
         if ffmpeg_path:
-            print(f"✅ Found FFmpeg in system PATH: {ffmpeg_path}")
+            print(f" Found FFmpeg in system PATH: {ffmpeg_path}")
     
     if not ffprobe_path:
         print("FFprobe not found in bundled directory, checking system PATH...")
         ffprobe_path = which("ffprobe")
         if ffprobe_path:
-            print(f"✅ Found FFprobe in system PATH: {ffprobe_path}")
+            print(f" Found FFprobe in system PATH: {ffprobe_path}")
     
    
     if not ffmpeg_path:
-        print("❌ ERROR: FFmpeg not found anywhere!")
+        print(" ERROR: FFmpeg not found anywhere!")
         print(f"Please ensure ffmpeg.exe is in: {ffmpeg_dir}")
         print("Or install FFmpeg system-wide and add it to your PATH")
         return None, None
     
     if not ffprobe_path:
-        print("❌ ERROR: FFprobe not found anywhere!")
+        print(" ERROR: FFprobe not found anywhere!")
         print(f"Please ensure ffprobe.exe is in: {ffmpeg_dir}")
         print("Or install FFmpeg system-wide and add it to your PATH")
         return None, None
     
     
-    print(f"✅ FFmpeg setup complete!")
+    print(f" FFmpeg setup complete ")
     return ffmpeg_path, ffprobe_path
 
 # Initialize paths
@@ -125,8 +125,8 @@ try:
         FFMPEG_AVAILABLE = False
     else:
         FFMPEG_AVAILABLE = True
-        print(f"✅ FFmpeg available at: {FFMPEG_PATH}")
-        print(f"✅ FFprobe available at: {FFPROBE_PATH}")
+        print(f" FFmpeg available at: {FFMPEG_PATH}")
+        print(f" FFprobe available at: {FFPROBE_PATH}")
 except Exception as e:
     print(f"ERROR during FFmpeg setup: {e}")
     FFMPEG_PATH, FFPROBE_PATH = None, None
@@ -366,8 +366,8 @@ class App:
             main_logic(self.audio_file_path, self.output_dir_path, self.selected_language, self)
             self.update_progress(100, "ALL TASKS HAVE BEEN PERFORMED SUCCESSFULLY!")
             print("\n" + "="*80)
-            print("🎉 ALL TASKS HAVE BEEN PERFORMED SUCCESSFULLY!")
-            print(f"📁 PLEASE FIND YOUR FILES IN THE SELECTED DIRECTORY:")
+            print(" ALL TASKS HAVE BEEN PERFORMED SUCCESSFULLY!")
+            print(f" PLEASE FIND YOUR FILES IN THE SELECTED DIRECTORY:")
             print(f"   {self.output_dir_path}")
             print("="*80)
         except Exception as e:
@@ -496,7 +496,7 @@ def convert_audio_to_wav_pydub(input_path, output_filename="temp_audio.wav"):
 
 def perform_persian_transcription(audio_path):
     """Persian-specific transcription using Vosk model"""
-    print("\n--- PERSIAN TRANSCRIPTION (Vosk Model) ---")
+    print("\n PERSIAN TRANSCRIPTION (Vosk Model) ")
     
     try:
         # Check if Vosk model exists
@@ -582,7 +582,7 @@ def perform_persian_transcription(audio_path):
 
 def perform_hebrew_transcription(audio_path):
     """Hebrew-specific transcription using custom Hebrew Whisper model"""
-    print("\n--- HEBREW TRANSCRIPTION (Hebrew Whisper Model) ---")
+    print("\n HEBREW TRANSCRIPTION (Hebrew Whisper Model) ")
     
     try:
         # Check if Hebrew Whisper model exists
@@ -591,11 +591,11 @@ def perform_hebrew_transcription(audio_path):
             print("Please ensure the Hebrew-whisper model is in the models/Hebrew-whisper/ directory")
             return None, None
         
-        print("Loading Hebrew Whisper model...")
+        print("Loaded Hebrew Whisper model ")
         model = WhisperModel(hebrew_whisper_model_path, compute_type="int8", device="cpu")
         
         print(f"Transcribing Hebrew audio from: {os.path.basename(audio_path)}")
-        print("Forcing Hebrew language detection...")
+        print("Forcing Hebrew language detection ")
         
         # Transcribe with forced Hebrew language
         segments_generator, info = model.transcribe(audio_path, beam_size=5, language="he")
@@ -644,7 +644,7 @@ def perform_hebrew_transcription(audio_path):
 
 def perform_english_transcription(audio_path):
     """English-specific transcription using custom English Whisper model"""
-    print("\n--- ENGLISH TRANSCRIPTION (Custom English Whisper Model) ---")
+    print("\n ENGLISH TRANSCRIPTION (Custom English Whisper Model) ")
     
     try:
         # Check if English Whisper model exists
@@ -659,7 +659,7 @@ def perform_english_transcription(audio_path):
             print("ERROR: Failed to convert audio to clean WAV format")
             return None, None
         
-        print("Loading English Whisper model and processor...")
+        print("Loading English Whisper model and processor ")
         processor = AutoProcessor.from_pretrained(english_whisper_model_path)
         model = AutoModelForSpeechSeq2Seq.from_pretrained(english_whisper_model_path)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -714,7 +714,7 @@ def perform_english_transcription(audio_path):
                     word_start_time = chunk_start_time + (j * word_duration)
                     word_objects.append(Word(word, word_start_time))
             
-            print(f"✅ Transcribed chunk {i+1}/{num_chunks}")
+            print(f" Transcribed chunk {i+1}/{num_chunks}")
         
         # Combine all text
         full_text = " ".join(all_text_parts)
@@ -751,7 +751,7 @@ def perform_english_transcription(audio_path):
 
 def perform_audio_analysis(audio_path, selected_language):
     """Route to appropriate transcription method based on selected language"""
-    print(f"\n--- STAGE 1: Transcription ({selected_language.title()}) ---")
+    print(f"\n STAGE 1: Transcription ({selected_language.title()}) ")
     
     if selected_language == "persian":
         return perform_persian_transcription(audio_path)
@@ -771,7 +771,7 @@ def align_transcript(words):
     return " ".join(word.word for word in words).strip()
 
 def run_llm_task(llm, system_prompt, user_prompt, task_name="Processing"):
-    print(f"\n--- Starting AI Task: {task_name} ---")
+    print(f"\n AI Task: {task_name} ")
     start_time = time.time()
     try:
         response = llm.create_chat_completion(
@@ -968,4 +968,5 @@ if __name__ == "__main__":
         tkinter.messagebox.showerror("Fatal Error", f"A required library is missing:\n\n{e}\n\nPlease close the application, activate your .venv, and run the pip install commands.")
     except Exception as e:
         import tkinter.messagebox
+
         tkinter.messagebox.showerror("Fatal Error", f"A fatal error occurred on startup:\n\n{e}\n\nPlease check that all models are in the 'models' folder.")
