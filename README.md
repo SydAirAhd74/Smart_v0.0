@@ -30,5 +30,7 @@ Please follow the video from [Youtube](https://youtu.be/Knx02Makn1Y) for a demo 
 
 Was originally made as part of IWTSD (Department of Defense) Smart Summary challenge on Innocentive platform
 
+<img width="932" height="409" alt="Flow Diagram" src="https://github.com/user-attachments/assets/9a9fda64-71fd-455f-90be-8bc843b39e4b" />
+
 
 
